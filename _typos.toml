@@ -1,0 +1,6 @@
+[default.extend-words]
+# 放置忽略的单词
+# 例如：teh = "teh"，表示不纠正teh
+
+[files]
+extend-exclude = ["README.md"] # 排除不需要检查的文件

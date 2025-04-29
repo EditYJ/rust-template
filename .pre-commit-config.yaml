@@ -1,0 +1,58 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: fix-byte-order-marker
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        description: 使用 rust-fmt 格式化文件。
+        entry: bash -c 'cargo fmt -- --check'
+        language: rust
+        files: \.rs$
+        args: []
+      - id: cargo-deny
+        name: cargo deny check
+        description: 检查 cargo 依赖关系
+        entry: bash -c 'cargo deny check -d'
+        language: rust
+        files: \.rs$
+        args: []
+      - id: typos
+        name: typos
+        description: 使用 typo 拼写检查
+        entry: bash -c 'typos'
+        language: rust
+        files: \.*$
+        pass_filenames: false
+      - id: cargo-check
+        name: cargo check
+        description: 检查包是否有错误。
+        entry: bash -c 'cargo check --all'
+        language: rust
+        files: \.rs$
+        pass_filenames: false
+      - id: cargo-clippy
+        name: cargo clippy
+        description: rust analyzer 保证你写的代码通过编译；clippy 保证通过编译的代码写得更加地道，而不会陷入常见的代码规范错误
+        entry: bash -c 'cargo clippy --all-targets --all-features --tests --benches -- -D warnings'
+        language: rust
+        files: \.rs$
+        pass_filenames: false
+      - id: cargo-test
+        name: cargo test
+        description: 运行项目单元测试
+        entry: bash -c 'cargo nextest run --all-features'
+        language: rust
+        files: \.rs$
+        pass_filenames: false
