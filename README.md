@@ -54,8 +54,8 @@ cargo install cargo-nextest --locked
 ```
 
 ## 🌟 进阶之路
-🔥 关注公众号「哈希茶馆」解锁配套教程，实时获取后续章节更新
+🔥 关注我的公众号「哈希茶馆」解锁配套教程，实时获取后续章节更新
 
 📌 **Star本仓库不迷路** → 开发技巧持续更新中！
 
-![white_full.png](https://s2.loli.net/2025/04/19/MIJQjzq3RkLb1xB.png)
+![white_full.png](https://raw.githubusercontent.com/EditYJ/rust-template/main/images/wx-qrcode.png)
