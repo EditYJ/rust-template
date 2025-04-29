@@ -1,4 +1,5 @@
-{{ project-name }}
+# {{ project-name }}
+
 环境配置
 安装 Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
